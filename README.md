@@ -167,28 +167,29 @@ spec:
       name: Create Azure Pipeline
       action: azure:pipeline:create
       input:
-        organization: ${{ (parameters.repoUrl | parseRepoUrl)['organization'] }}
-        project: ${{ (parameters.repoUrl | parseRepoUrl)['owner'] }}
+        organization: ${{ (parameters.repoUrl | parseRepoUrl).organization }}
+        project: ${{ (parameters.repoUrl | parseRepoUrl).owner }}
         folder: "my-azure-pipelines-folder"
         name: ${{ parameters.name }}
         repositoryId: ${{ steps.publish.output.repositoryId }}
-        repositoryName: ${{ (parameters.repoUrl | parseRepoUrl)['repo'] }}
+        repositoryName: ${{ (parameters.repoUrl | parseRepoUrl).repo }}
         yamlPath: <optional value to your azure pipelines yaml file, defaults to ./azure-pipelines.yaml>
 
     - id: runAzurePipeline
       name: Run Azure Pipeline
       action: azure:pipeline:run
       input:
-        organization: ${{ (parameters.repoUrl | parseRepoUrl)['organization'] }}
+        organization: ${{ (parameters.repoUrl | parseRepoUrl).organization }}
         pipelineId: ${{ steps.createAzurePipeline.output.pipelineId }}
-        project: ${{ (parameters.repoUrl | parseRepoUrl)['owner'] }}
+        project: ${{ (parameters.repoUrl | parseRepoUrl).owner }}
+        values: {"templateParameters" : ""}
 
     - id: permitAzurePipeline
       name: Change Azure Pipeline Permissions
       action: azure:pipeline:permit
       input:
-        organization: ${{ (parameters.repoUrl | parseRepoUrl)['organization'] }}
-        project: ${{ (parameters.repoUrl | parseRepoUrl)['owner'] }}
+        organization: ${{ (parameters.repoUrl | parseRepoUrl).organization }}
+        project: ${{ (parameters.repoUrl | parseRepoUrl).owner }}
         resourceId: <serviceEndpointId>
         resourceType: endpoint
         authorized: true
