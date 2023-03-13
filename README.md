@@ -221,3 +221,6 @@ to `true`.
 
 You can find a list of all registred actions including their parameters at the
 `/create/actions` route in your Backstage application.
+
+**_Note_**: The `azure:pipeline:run`
+it was necessary to generate a new tag 0.4.4 tando publish NPM the recent changes, after version 0.4.3
