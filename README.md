@@ -223,4 +223,4 @@ You can find a list of all registred actions including their parameters at the
 `/create/actions` route in your Backstage application.
 
 **_Note_**: The `azure:pipeline:run`
-it was necessary to generate a new tag 0.4.4 tando publish NPM the recent changes, after version 0.4.3
+Package generated because parfuemerie-douglas maintainer did not generate a version with feature https://github.com/Parfuemerie-Douglas/scaffolder-backend-module-azure-pipelines/pull/16/commits,after version 0.4.3
